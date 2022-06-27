@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "253312443655",
+    "project_id": "bookstore-543d2",
+    "storage_bucket": "bookstore-543d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253312443655:android:8f1d7abeccb1de2df5d1a2",
+        "android_client_info": {
+          "package_name": "com.example.pickabook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253312443655-88u537lpfju0495dvs5sh2pu439a0bbt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDOoAo-4USSzWZZvQ6hWzW6X60IgWbrb0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "253312443655-88u537lpfju0495dvs5sh2pu439a0bbt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
