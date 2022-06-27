@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/categoryScreen">
+
+    <fragment
+        android:id="@+id/categoryScreen"
+        android:name="com.example.pickabook.screens.categoryScreen.CategoryScreen"
+        android:label="Category"
+        tools:layout="@layout/fragment_category_screen" >
+        <action
+            android:id="@+id/action_categoryScreen_to_fictionScreen"
+            app:destination="@id/fictionScreen" />
+        <action
+            android:id="@+id/action_categoryScreen_to_nonFictionScreen"
+            app:destination="@id/nonFictionScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/fictionScreen"
+        android:name="com.example.pickabook.screens.fiction.FictionScreen"
+        android:label="Fiction"
+        tools:layout="@layout/fragment_fiction_screen" >
+        <action
+            android:id="@+id/action_fictionScreen_to_bookListScreen"
+            app:destination="@id/bookListScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/nonFictionScreen"
+        android:name="com.example.pickabook.screens.nonFiciton.NonFictionScreen"
+        android:label="Non Fiction"
+        tools:layout="@layout/fragment_non_fiction_screen" >
+        <action
+            android:id="@+id/action_nonFictionScreen_to_bookListScreen"
+            app:destination="@id/bookListScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookListScreen"
+        android:name="com.example.pickabook.screens.listOfBooks.BookListScreen"
+        android:label="Book List"
+        tools:layout="@layout/fragment_book_list_screen" />
+    <fragment
+        android:id="@+id/favouriteScreen"
+        android:name="com.example.pickabook.screens.fav.FavouriteScreen"
+        android:label="Favourite"
+        tools:layout="@layout/fragment_favourite_screen" />
+    <fragment
+        android:id="@+id/aboutApp"
+        android:name="com.example.pickabook.screens.about.AboutApp"
+        android:label="About"
+        tools:layout="@layout/fragment_about_app" />
+    <fragment
+        android:id="@+id/cartScreen"
+        android:name="com.example.pickabook.screens.cart.CartScreen"
+        android:label="Cart"
+        tools:layout="@layout/fragment_cart_screen" />
+    <fragment
+        android:id="@+id/bookDetails"
+        android:name="com.example.pickabook.screens.bookDetails.BookDetails"
+        android:label="fragment_book_details"
+        tools:layout="@layout/fragment_book_details" />
+    <fragment
+        android:id="@+id/loginScreen"
+        android:name="com.example.pickabook.screens.signinSignup.LoginScreen"
+        android:label="fragment_login_screen"
+        tools:layout="@layout/fragment_login_screen" />
+    <fragment
+        android:id="@+id/signupScreen"
+        android:name="com.example.pickabook.screens.signinSignup.SignupScreen"
+        android:label="fragment_signup_screen"
+        tools:layout="@layout/fragment_signup_screen" />
+</navigation>

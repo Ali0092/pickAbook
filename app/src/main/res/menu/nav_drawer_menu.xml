@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/favouriteScreen"
+        android:icon="@drawable/fav_ic"
+        android:title="Favourite"
+        />
+    <item
+        android:id="@+id/cartScreen"
+        android:icon="@drawable/cart_ic"
+        android:title="Cart"/>
+    <item
+        android:id="@+id/aboutApp"
+        android:icon="@drawable/about_ic"
+        android:title="About"/>
+
+
+</menu>

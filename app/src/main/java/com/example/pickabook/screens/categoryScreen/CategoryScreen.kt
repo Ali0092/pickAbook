@@ -1,0 +1,32 @@
+package com.example.pickabook.screens.categoryScreen
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import com.example.pickabook.R
+import com.example.pickabook.databinding.FragmentCategoryScreenBinding
+
+class CategoryScreen : Fragment() {
+
+    private lateinit var binding:FragmentCategoryScreenBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding= FragmentCategoryScreenBinding.inflate(layoutInflater)
+
+        binding.fictionBtn.setOnClickListener {
+            this.findNavController().navigate(R.id.action_categoryScreen_to_fictionScreen)
+        }
+        binding.nonFictionBtn.setOnClickListener {
+            this.findNavController().navigate(R.id.action_categoryScreen_to_nonFictionScreen)
+        }
+        return binding.root
+    }
+
+}
