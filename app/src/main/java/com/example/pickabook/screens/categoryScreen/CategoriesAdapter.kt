@@ -42,7 +42,7 @@ class CategoriesAdapter() : BaseAdapter() {
         }
 
         listViewItem!!.findViewById<TextView>(R.id.name_tv).setText(catArray[position].name)
-        listViewItem.findViewById<ImageView>(R.id.img_iv).setImageResource(catArray[position].img)
+        listViewItem.findViewById<ImageView>(R.id.img_iv).setImageResource(catArray[position].id)
 
         return listViewItem
     }

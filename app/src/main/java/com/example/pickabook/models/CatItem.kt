@@ -1,6 +1,6 @@
 package com.example.pickabook.models
 
 data class CatItem(
-    val img:Int,
+    val id:Int,
     val name:String
 )

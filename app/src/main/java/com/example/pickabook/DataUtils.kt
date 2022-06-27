@@ -1,8 +1,12 @@
 package com.example.pickabook
 
 import com.example.pickabook.models.CatItem
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 object DataUtils {
+    val BookStore= Firebase.firestore.collection("BookStore")
+
     val fictionCategory = arrayOf(
         CatItem(R.drawable.action_adventure, "Action"),
         CatItem(R.drawable.alternate_history, "History"),

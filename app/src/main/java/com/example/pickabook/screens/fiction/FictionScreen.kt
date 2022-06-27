@@ -24,6 +24,8 @@ class FictionScreen : Fragment() {
         adapter.CategoriesAdapter(this.requireContext(), DataUtils.fictionCategory)
         binding.fGridGv.adapter = adapter
 
+
+
        /* binding.fGridGv.setOnItemClickListener { parent, v, position, id ->
             val item = DataUtils.fictionCategory[position]
           /*  this.findNavController()
