@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_categoryScreen_to_nonFictionScreen"
             app:destination="@id/nonFictionScreen" />
+        <action
+            android:id="@+id/action_categoryScreen_to_aboutApp"
+            app:destination="@id/aboutApp" />
     </fragment>
     <fragment
         android:id="@+id/fictionScreen"

@@ -40,9 +40,12 @@ class MainActivity : AppCompatActivity() {
                 binding.mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
             }
         }
-        binding.drawerBtn.setOnClickListener {
+
+      /*  binding.drawerBtn.setOnClickListener {
             binding.mDrawerLayout.open()
         }
+
+       */
     }
 
     private fun delayer(): Boolean {
