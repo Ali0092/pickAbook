@@ -5,10 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".screens.listOfBooks.BookListScreen">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/revView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="list of all frags" />
+        android:layout_height="match_parent"/>
 
 </FrameLayout>

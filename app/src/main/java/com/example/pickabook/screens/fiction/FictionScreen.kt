@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.pickabook.DataUtils
 import com.example.pickabook.screens.categoryScreen.CategoriesAdapter
 import com.example.pickabook.databinding.FragmentFictionScreenBinding
@@ -26,16 +27,15 @@ class FictionScreen : Fragment() {
 
 
 
-       /* binding.fGridGv.setOnItemClickListener { parent, v, position, id ->
+        binding.fGridGv.setOnItemClickListener { parent, v, position, id ->
             val item = DataUtils.fictionCategory[position]
-          /*  this.findNavController()
+            this.findNavController()
                 .navigate(
-                    FictionScreenDirections.actionFictionScreenToCheckScreen(item.name)
+                    FictionScreenDirections.actionFictionScreenToBookListScreen()
                 )
-           */
         }
 
-        */
+
 
         return binding.root
     }

@@ -8,8 +8,7 @@ import com.google.firebase.storage.ktx.storage
 
 object DataUtils {
     val BookStore= Firebase.firestore.collection("BookStore")
-    val storage=FirebaseStorage.getInstance().getReference("bookImages/")
-    const val temp=0
+        //  val storage=FirebaseStorage.getInstance().getReference("bookImages/")
 
     val fictionCategory = arrayOf(
         CatItem(R.drawable.action_adventure, "Action"),
