@@ -12,36 +12,41 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
-import java.lang.Exception
+import kotlin.math.sin
 
-class AboutViewModel:ViewModel() {
+class AboutViewModel : ViewModel() {
 
-    private val store=DataUtils.BookStore.document("Fiction").collection("Action")
+    private val store = DataUtils.BookStore.document("Fiction").collection("Action")
 
-    private val _data= MutableLiveData<MutableList<BookItem>>()
-    val data:LiveData<MutableList<BookItem>>
-    get() = _data
+    private val _data = MutableLiveData<MutableList<BookItem>>()
+    val data: LiveData<MutableList<BookItem>>
+        get() = _data
 
-    fun getSingleData(){
-         CoroutineScope(Dispatchers.IO).launch {
-             try {
-               val query=store.get().await()
-                 for (doc in query.documents){
-                     val data= doc.toObject<BookItem>()
-                     val singleItem= data?.let { BookItem(it.title,it.author,it.status,it.link,it.price.toString()) }
-                     if (singleItem != null) {
-                         _data.value?.add(singleItem)
-                     }
-                     withContext(Dispatchers.Main){
-                         Log.d("Data List","Data Added...")
-                     }
-                 }
-             }catch (e:Exception){
-                 withContext(Dispatchers.Main){
-                     Log.d("Data List",e.message.toString())
-                 }
-             }
-         }
+
+    fun getSingleData() {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val query = store.get().await()
+                val list= mutableListOf<BookItem>()
+
+                for (doc in query.documents) {
+                    val dataItem = doc.toObject<BookItem>()
+                    if(dataItem!=null){
+                       list.add(dataItem)
+                    }
+                }
+                _data.postValue(list)
+                withContext(Dispatchers.Main){
+                    Log.d("Tester", _data.value?.get(1)?.status.toString())
+                }
+
+
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    Log.d("Data List", e.message.toString())
+                }
+            }
+        }
     }
 
 }
