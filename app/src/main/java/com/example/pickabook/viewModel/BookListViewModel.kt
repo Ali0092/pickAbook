@@ -3,6 +3,7 @@ package com.example.pickabook.viewModel
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.pickabook.DataUtils
 import com.example.pickabook.models.BookItem
 import com.example.pickabook.models.BookStore
@@ -15,7 +16,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
-class BookListViewModel(category: Category) {
+class BookListViewModel(category: Category):ViewModel() {
 
     private var store:CollectionReference
 

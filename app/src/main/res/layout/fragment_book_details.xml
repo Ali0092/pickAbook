@@ -5,10 +5,46 @@
     android:layout_height="match_parent"
     tools:context=".screens.bookDetails.BookDetails">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Some Frag" />
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/Image"
+            android:layout_width="250dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center" />
+        <TextView
+            android:id="@+id/bookTitle"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Title"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/authorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Author Name"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Availability"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Price"
+            android:textSize="20sp"/>
+
+
+
+    </LinearLayout>
 
 </FrameLayout>

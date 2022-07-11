@@ -2,4 +2,8 @@
     <string name="app_name">pickAbook</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about_app">pickAbook is a book store where you can buy all your favourite books at
+    special discounts and also you can read the books in you mobile for reading service you have to
+    buy a premium account.....</string>
+
 </resources>
