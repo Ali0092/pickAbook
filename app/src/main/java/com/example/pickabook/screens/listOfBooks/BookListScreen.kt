@@ -1,36 +1,46 @@
 package com.example.pickabook.screens.listOfBooks
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.pickabook.R
 import com.example.pickabook.databinding.FragmentBookListScreenBinding
-import com.example.pickabook.models.BookStore
-import com.example.pickabook.screens.categoryScreen.CategoriesAdapter
+import com.example.pickabook.models.Category
+import com.example.pickabook.viewModel.BookListViewModel
 
 class BookListScreen : Fragment() {
 
     private lateinit var binding: FragmentBookListScreenBinding
     private lateinit var bookListAdapter: BookListAdapter
-
+    private lateinit var bookListViewModel: BookListViewModel
+    private val args: BookListScreenArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-       binding= FragmentBookListScreenBinding.inflate(layoutInflater)
+        binding = FragmentBookListScreenBinding.inflate(layoutInflater)
+        settingUpRecyclerView()
+        val bookCategory = Category(args.cat, args.subCat)
+        bookListViewModel = BookListViewModel(bookCategory)
 
-       return binding.root
+        bookListViewModel.getAllData()
+        bookListViewModel.data.observe(viewLifecycleOwner, Observer {
+            settingUpRecyclerView()
+            bookListAdapter.getBookListItems(it)
+        })
+
+        return binding.root
     }
 
-    fun settingUpRecyclerView(list:List<BookStore>,cat:String){
-       bookListAdapter= BookListAdapter()
-       bookListAdapter.getBookListItems(list,cat)
-       binding.revView.adapter=bookListAdapter
-       binding.revView.layoutManager=GridLayoutManager(context,2)
+    private fun settingUpRecyclerView() {
+        bookListAdapter = BookListAdapter()
+        binding.revView.adapter = bookListAdapter
+        binding.revView.layoutManager = GridLayoutManager(context, 2)
     }
 
 

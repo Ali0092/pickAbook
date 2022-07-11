@@ -29,10 +29,7 @@ class FictionScreen : Fragment() {
 
         binding.fGridGv.setOnItemClickListener { parent, v, position, id ->
             val item = DataUtils.fictionCategory[position]
-            this.findNavController()
-                .navigate(
-                    FictionScreenDirections.actionFictionScreenToBookListScreen()
-                )
+            this.findNavController().navigate(FictionScreenDirections.actionFictionScreenToBookListScreen("Fiction",item.name.toString()))
         }
 
 

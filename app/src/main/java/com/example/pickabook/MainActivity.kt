@@ -17,11 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        installSplashScreen().apply {
-            this.setKeepOnScreenCondition {
-                delayer()
-            }
-        }
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -41,17 +37,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-      /*  binding.drawerBtn.setOnClickListener {
+       binding.drawerBtn.setOnClickListener {
             binding.mDrawerLayout.open()
         }
 
-       */
+
     }
 
-    private fun delayer(): Boolean {
-        CoroutineScope(Dispatchers.Main).launch {
-            delay(3000)
-        }
-        return false
-    }
 }

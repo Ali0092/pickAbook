@@ -26,9 +26,7 @@ class NonFictionScreen : Fragment() {
 
         binding.nfGridGv.setOnItemClickListener { adapterView, view, i, l ->
           val item=DataUtils.nonFictionCategory[i]
-         this.findNavController().navigate(
-              NonFictionScreenDirections.actionNonFictionScreenToBookListScreen()
-          )
+         this.findNavController().navigate(NonFictionScreenDirections.actionNonFictionScreenToBookListScreen("NonFiction",item.name.toString()))
 
         }
 
