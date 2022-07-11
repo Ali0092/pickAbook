@@ -1,6 +1,6 @@
 package com.example.pickabook.models
 
-data class BookStore(
+data class BookTitle(
     val name:String=" ",
     val id:String=" "
 )

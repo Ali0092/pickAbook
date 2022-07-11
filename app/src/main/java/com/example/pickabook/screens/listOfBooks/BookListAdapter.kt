@@ -3,14 +3,17 @@ package com.example.pickabook.screens.listOfBooks
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pickabook.databinding.GridViewItemBinding
-import com.example.pickabook.models.BookStore
+import com.example.pickabook.models.BookDetails
+import com.example.pickabook.models.BookTitle
 import com.squareup.picasso.Picasso
 
 class BookListAdapter : RecyclerView.Adapter<BookListAdapter.MyViewHolder>() {
 
-    var bookList = emptyList<BookStore>()
+    private var bookList = emptyList<BookTitle>()
+    private var bookDetailsList= emptyList<BookDetails>()
     //  var cat:String=" "
 
     class MyViewHolder(val binding: GridViewItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -33,10 +36,10 @@ class BookListAdapter : RecyclerView.Adapter<BookListAdapter.MyViewHolder>() {
             Picasso.get().load(currentItem.id).into(this.imgIv)
             this.nameTv.text = currentItem.name.toString()
         }
-        /* holder.binding.gridLayout.setOnClickListener {
-                 it.findNavController().navigate(R.id.action_fictionScreen_to_bookListScreen)
-         }
-         */
+        holder.binding.gridLayout.setOnClickListener {
+           it.findNavController().navigate(BookListScreenDirections.actionBookListScreenToBookDetails(bookDetailsList[position]))
+        }
+
 
     }
 
@@ -45,9 +48,11 @@ class BookListAdapter : RecyclerView.Adapter<BookListAdapter.MyViewHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun getBookListItems(list: List<BookStore>) {
+    fun getBookListItems(list: List<BookTitle>) {
         this.bookList = list
-        //  this.cat=cat
         this.notifyDataSetChanged()
+    }
+    fun getBookDetailsList(list:List<BookDetails>){
+        this.bookDetailsList=list
     }
 }

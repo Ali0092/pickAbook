@@ -1,17 +1,13 @@
 package com.example.pickabook
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.pickabook.databinding.ActivityMainBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -19,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
-        binding= ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val navHostFragment =
@@ -27,20 +23,19 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         binding.nvView.setupWithNavController(navController)
 
-        navController.addOnDestinationChangedListener{ c,destination, a ->
-            if(destination.id==R.id.categoryScreen){
-                binding.drawerBtn.visibility= View.VISIBLE
+        navController.addOnDestinationChangedListener { c, destination, a ->
+            if (destination.id == R.id.categoryScreen) {
+                binding.drawerBtn.visibility = View.VISIBLE
                 binding.mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
-            }else{
-                binding.drawerBtn.visibility= View.GONE
+            } else {
+                binding.drawerBtn.visibility = View.GONE
                 binding.mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
             }
         }
 
-       binding.drawerBtn.setOnClickListener {
+        binding.drawerBtn.setOnClickListener {
             binding.mDrawerLayout.open()
         }
-
 
     }
 

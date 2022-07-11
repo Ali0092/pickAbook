@@ -29,9 +29,12 @@ class BookListScreen : Fragment() {
         bookListViewModel = BookListViewModel(bookCategory)
 
         bookListViewModel.getAllData()
+
         bookListViewModel.data.observe(viewLifecycleOwner, Observer {
-            settingUpRecyclerView()
             bookListAdapter.getBookListItems(it)
+        })
+        bookListViewModel.details.observe(viewLifecycleOwner, Observer {
+            bookListAdapter.getBookDetailsList(it)
         })
 
         return binding.root

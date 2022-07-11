@@ -16,7 +16,7 @@ class SignupScreen : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding= FragmentSignupScreenBinding.inflate(layoutInflater)
 
          return binding.root

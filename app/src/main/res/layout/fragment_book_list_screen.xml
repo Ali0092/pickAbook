@@ -7,6 +7,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/revView"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

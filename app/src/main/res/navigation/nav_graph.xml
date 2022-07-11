@@ -74,7 +74,7 @@
         tools:layout="@layout/fragment_book_details" >
         <argument
             android:name="singleBook"
-            app:argType="com.example.pickabook.models.BookItem" />
+            app:argType="com.example.pickabook.models.BookDetails" />
     </fragment>
     <fragment
         android:id="@+id/loginScreen"

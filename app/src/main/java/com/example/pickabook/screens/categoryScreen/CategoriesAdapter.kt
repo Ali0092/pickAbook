@@ -8,15 +8,15 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.pickabook.R
-import com.example.pickabook.models.CatItem
+import com.example.pickabook.models.BookTitle
 
 
 class CategoriesAdapter() : BaseAdapter() {
 
     private var mContext: Context? = null
-    private var catArray= emptyArray<CatItem>()
+    private var catArray= emptyArray<BookTitle>()
 
-    fun CategoriesAdapter(c: Context?,cArray:Array<CatItem>) {
+    fun CategoriesAdapter(c: Context?,cArray:Array<BookTitle>) {
         mContext = c
         catArray=cArray
     }
@@ -42,7 +42,7 @@ class CategoriesAdapter() : BaseAdapter() {
         }
 
         listViewItem!!.findViewById<TextView>(R.id.name_tv).setText(catArray[position].name)
-        listViewItem.findViewById<ImageView>(R.id.img_iv).setImageResource(catArray[position].id)
+        listViewItem.findViewById<ImageView>(R.id.img_iv).setImageResource(Integer.parseInt(catArray[position].id))
 
         return listViewItem
     }
