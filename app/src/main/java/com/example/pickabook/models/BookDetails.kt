@@ -5,9 +5,9 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class BookDetails(
-    val title:String="",
     val author:String="",
-    val status:String="",
     val link:String="",
-    val price:String=""
+    val price:String="",
+    val status:String="",
+    val title:String=""
 ):Parcelable

@@ -1,6 +1,7 @@
 package com.example.pickabook.screens.listOfBooks
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.pickabook.databinding.FragmentBookListScreenBinding
 import com.example.pickabook.models.Category
 import com.example.pickabook.viewModel.BookListViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class BookListScreen : Fragment() {
 
@@ -34,7 +39,7 @@ class BookListScreen : Fragment() {
             bookListAdapter.getBookListItems(it)
         })
         bookListViewModel.details.observe(viewLifecycleOwner, Observer {
-            bookListAdapter.getBookDetailsList(it)
+              bookListAdapter.getBookDetailsList(it)
         })
 
         return binding.root
