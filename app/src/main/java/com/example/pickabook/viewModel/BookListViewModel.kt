@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pickabook.DataUtils
 import com.example.pickabook.models.BookDetails
-import com.example.pickabook.models.BookTitle
+import com.example.pickabook.models.BookCatTitle
 import com.example.pickabook.models.Category
 import com.google.firebase.firestore.ktx.toObject
 import kotlinx.coroutines.CoroutineScope
@@ -18,8 +18,8 @@ class BookListViewModel(category: Category) : ViewModel() {
 
     private var store = DataUtils.BookStore.document(category.cat).collection(category.subCat)
 
-    private val _data = MutableLiveData<List<BookTitle>>()
-    val data: LiveData<List<BookTitle>>
+    private val _data = MutableLiveData<List<BookCatTitle>>()
+    val data: LiveData<List<BookCatTitle>>
         get() = _data
 
     private val _details = MutableLiveData<List<BookDetails>>()
@@ -30,7 +30,7 @@ class BookListViewModel(category: Category) : ViewModel() {
     fun getAllData() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val list = mutableListOf<BookTitle>()
+                val list = mutableListOf<BookCatTitle>()
                 val listWithDetails = mutableListOf<BookDetails>()
 
                 store.addSnapshotListener { snapshot, error ->
@@ -42,15 +42,14 @@ class BookListViewModel(category: Category) : ViewModel() {
                         val dataList = snapshot.documents
                         for (doc in dataList) {
                             val dataItem = doc.toObject<BookDetails>()
-
                             if (dataItem != null) {
-                                val temp = BookTitle(dataItem.title.toString(), dataItem.link)
+                             //   val temp = BookCatTitle(dataItem.title.toString(), dataItem.link)
                                 listWithDetails.add(dataItem)
-                                list.add(temp)
+                             //   list.add(temp)
                             }
 
                         }
-                        _data.postValue(list)
+                     //   _data.postValue(list)
                         _details.postValue(listWithDetails)
 
                     } else {

@@ -6,13 +6,9 @@
     android:padding="16dp"
     tools:context=".screens.nonFiciton.NonFictionScreen">
 
-    <GridView
-        android:id="@+id/nfGrid_gv"
-        android:layout_marginTop="20dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:horizontalSpacing="16dp"
-        android:verticalSpacing="16dp"
-        android:numColumns="2"/>
+        android:layout_height="match_parent" />
 
 </FrameLayout>

@@ -7,12 +7,12 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pickabook.databinding.GridViewItemBinding
 import com.example.pickabook.models.BookDetails
-import com.example.pickabook.models.BookTitle
+import com.example.pickabook.models.BookCatTitle
 import com.squareup.picasso.Picasso
 
 class BookListAdapter : RecyclerView.Adapter<BookListAdapter.MyViewHolder>() {
 
-    private var bookList = emptyList<BookTitle>()
+    private var bookList = emptyList<BookCatTitle>()
     private var bookDetailsList= emptyList<BookDetails>()
     //  var cat:String=" "
 
@@ -33,7 +33,7 @@ class BookListAdapter : RecyclerView.Adapter<BookListAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = bookList[position]
         holder.binding.apply {
-            Picasso.get().load(currentItem.id).into(this.imgIv)
+          //  Picasso.get().load(currentItem.id).into(this.imgIv)
             this.nameTv.text = currentItem.name.toString()
         }
         holder.binding.gridLayout.setOnClickListener {
@@ -48,7 +48,7 @@ class BookListAdapter : RecyclerView.Adapter<BookListAdapter.MyViewHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun getBookListItems(list: List<BookTitle>) {
+    fun getBookListItems(list: List<BookCatTitle>) {
         this.bookList = list
         this.notifyDataSetChanged()
     }

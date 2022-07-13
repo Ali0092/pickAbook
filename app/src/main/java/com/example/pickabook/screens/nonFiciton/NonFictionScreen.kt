@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.pickabook.DataUtils
-import com.example.pickabook.screens.categoryScreen.CategoriesAdapter
 import com.example.pickabook.databinding.FragmentNonFictionScreenBinding
 
 class NonFictionScreen : Fragment() {
@@ -19,16 +18,6 @@ class NonFictionScreen : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding= FragmentNonFictionScreenBinding.inflate(layoutInflater)
-
-        val adapter= CategoriesAdapter()
-        adapter.CategoriesAdapter(this.requireContext(),DataUtils.nonFictionCategory)
-        binding.nfGridGv.adapter=adapter
-
-        binding.nfGridGv.setOnItemClickListener { adapterView, view, i, l ->
-          val item=DataUtils.nonFictionCategory[i]
-         this.findNavController().navigate(NonFictionScreenDirections.actionNonFictionScreenToBookListScreen("NonFiction",item.name.toString()))
-
-        }
 
         return binding.root
     }

@@ -9,6 +9,7 @@
         <entry key="..\:/ANDROID/pickAbook2/app/src/main/res/drawable/mb.xml" value="0.1315" />
         <entry key="..\:/ANDROID/pickAbook2/app/src/main/res/drawable/menu_btn_style.xml" value="0.1315" />
         <entry key="..\:/ANDROID/pickAbook2/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/ANDROID/pickAbook2/app/src/main/res/layout/fav_cart_item_layout.xml" value="0.2564814814814815" />
         <entry key="..\:/ANDROID/pickAbook2/app/src/main/res/layout/fragment_about_app.xml" value="0.2324074074074074" />
         <entry key="..\:/ANDROID/pickAbook2/app/src/main/res/layout/fragment_book_details.xml" value="0.3375" />
         <entry key="..\:/ANDROID/pickAbook2/app/src/main/res/layout/fragment_book_list_screen.xml" value="0.16875" />
@@ -18,6 +19,7 @@
         <entry key="..\:/ANDROID/pickAbook2/app/src/main/res/layout/fragment_fiction_screen.xml" value="0.2324074074074074" />
         <entry key="..\:/ANDROID/pickAbook2/app/src/main/res/layout/fragment_non_fiction_screen.xml" value="0.2324074074074074" />
         <entry key="..\:/ANDROID/pickAbook2/app/src/main/res/layout/grid_view_item.xml" value="0.3375" />
+        <entry key="..\:/ANDROID/pickAbook2/app/src/main/res/layout/nav_header.xml" value="0.2564814814814815" />
         <entry key="..\:/ANDROID/pickAbook2/app/src/main/res/menu/nav_drawer_menu.xml" value="0.2324074074074074" />
       </map>
     </option>

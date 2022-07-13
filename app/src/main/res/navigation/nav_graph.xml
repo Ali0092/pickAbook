@@ -75,12 +75,22 @@
         <argument
             android:name="singleBook"
             app:argType="com.example.pickabook.models.BookDetails" />
+        <action
+            android:id="@+id/action_bookDetails_to_cartScreen"
+            app:destination="@id/cartScreen" />
+        <action
+            android:id="@+id/action_bookDetails_to_favouriteScreen"
+            app:destination="@id/favouriteScreen" />
     </fragment>
     <fragment
         android:id="@+id/loginScreen"
         android:name="com.example.pickabook.screens.signinSignup.LoginScreen"
         android:label="fragment_login_screen"
-        tools:layout="@layout/fragment_login_screen" />
+        tools:layout="@layout/fragment_login_screen" >
+        <action
+            android:id="@+id/action_loginScreen_to_signupScreen"
+            app:destination="@id/signupScreen" />
+    </fragment>
     <fragment
         android:id="@+id/signupScreen"
         android:name="com.example.pickabook.screens.signinSignup.SignupScreen"

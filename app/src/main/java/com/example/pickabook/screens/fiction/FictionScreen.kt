@@ -5,32 +5,38 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.example.pickabook.DataUtils
-import com.example.pickabook.screens.categoryScreen.CategoriesAdapter
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.pickabook.databinding.FragmentFictionScreenBinding
+import com.example.pickabook.viewModel.FictionViewModel
 
 
 class FictionScreen : Fragment() {
 
     private lateinit var binding: FragmentFictionScreenBinding
+    private lateinit var viewModel:FictionViewModel
+    private lateinit var adapter: FictionAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentFictionScreenBinding.inflate(layoutInflater)
+        viewModel=ViewModelProvider(this)[FictionViewModel::class.java]
+        settingUpRecyclerView()
+        viewModel.getAllTheCats()
+       viewModel.data.observe(viewLifecycleOwner, Observer {
+           adapter.getListData(it)
+        })
 
-        val adapter = CategoriesAdapter()
-        adapter.CategoriesAdapter(this.requireContext(), DataUtils.fictionCategory)
-        binding.fGridGv.adapter = adapter
-
-        binding.fGridGv.setOnItemClickListener { parent, v, position, id ->
-            val item = DataUtils.fictionCategory[position]
-            this.findNavController().navigate(FictionScreenDirections.actionFictionScreenToBookListScreen("Fiction",item.name.toString()))
-        }
 
         return binding.root
     }
 
+   private fun settingUpRecyclerView(){
+        adapter= FictionAdapter()
+        binding.recView.adapter=adapter
+        binding.recView.layoutManager= GridLayoutManager(context,2)
+    }
 }
