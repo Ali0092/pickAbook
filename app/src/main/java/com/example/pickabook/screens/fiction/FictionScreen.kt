@@ -16,7 +16,7 @@ class FictionScreen : Fragment() {
 
     private lateinit var binding: FragmentFictionScreenBinding
     private lateinit var viewModel:FictionViewModel
-    private lateinit var adapter: FictionAdapter
+    private val myadapter by lazy { FictionAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,17 +26,15 @@ class FictionScreen : Fragment() {
         viewModel=ViewModelProvider(this)[FictionViewModel::class.java]
         settingUpRecyclerView()
         viewModel.getAllTheCats()
-       viewModel.data.observe(viewLifecycleOwner, Observer {
-           adapter.getListData(it)
+        viewModel.data.observe(viewLifecycleOwner, Observer {
+           myadapter.setData(it)
         })
-
 
         return binding.root
     }
 
    private fun settingUpRecyclerView(){
-        adapter= FictionAdapter()
-        binding.recView.adapter=adapter
         binding.recView.layoutManager= GridLayoutManager(context,2)
-    }
+        binding.recView.adapter=myadapter
+   }
 }
