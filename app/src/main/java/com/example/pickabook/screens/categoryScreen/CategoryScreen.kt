@@ -20,10 +20,14 @@ class CategoryScreen : Fragment() {
         binding = FragmentCategoryScreenBinding.inflate(layoutInflater)
 
         binding.fictionBtn.setOnClickListener {
-            this.findNavController().navigate(R.id.action_categoryScreen_to_fictionScreen)
+            this.findNavController().navigate(
+                CategoryScreenDirections.actionCategoryScreenToFictionNonFictionScreen("Fiction")
+            )
         }
         binding.nonFictionBtn.setOnClickListener {
-            this.findNavController().navigate(R.id.action_categoryScreen_to_nonFictionScreen)
+            this.findNavController().navigate(
+                CategoryScreenDirections.actionCategoryScreenToFictionNonFictionScreen("NonFiction")
+            )
         }
         return binding.root
     }

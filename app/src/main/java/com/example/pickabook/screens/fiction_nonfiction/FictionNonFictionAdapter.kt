@@ -1,16 +1,18 @@
-package com.example.pickabook.screens.fiction
+package com.example.pickabook.screens.fiction_nonfiction
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pickabook.databinding.GridViewItemBinding
 import com.example.pickabook.models.BookCatTitle
 import com.squareup.picasso.Picasso
 
-class FictionAdapter : RecyclerView.Adapter<FictionAdapter.MyViewHolder>() {
+class FictionNonFictionAdapter : RecyclerView.Adapter<FictionNonFictionAdapter.MyViewHolder>() {
 
     private var list = emptyList<BookCatTitle>()
+    private var category: String = " "
 
     class MyViewHolder(val binding: GridViewItemBinding) : RecyclerView.ViewHolder(binding.root) {
         //ViewHolder Class...
@@ -32,7 +34,11 @@ class FictionAdapter : RecyclerView.Adapter<FictionAdapter.MyViewHolder>() {
             this.nameTv.text = list[position].name.toString()
         }
         holder.binding.gridLayout.setOnClickListener {
-            //Navigate From Fiction to BookList
+            it.findNavController().navigate(
+                FictionNonFictionScreenDirections.actionFictionNonFictionScreenToBookListScreen(
+                    category,
+                    list[position].name.toString()
+            ))
         }
     }
 
@@ -40,9 +46,13 @@ class FictionAdapter : RecyclerView.Adapter<FictionAdapter.MyViewHolder>() {
         return list.size
     }
 
+    fun setCategory(cat: String) {
+        category = cat
+    }
+
     fun setData(newList: List<BookCatTitle>) {
-        val diffutils=FictionDiffutils(list,newList)
-        val diffResult=DiffUtil.calculateDiff(diffutils)
+        val diffutils = FictionNonFictionDiffUtils(list, newList)
+        val diffResult = DiffUtil.calculateDiff(diffutils)
         list = newList
         diffResult.dispatchUpdatesTo(this)
     }

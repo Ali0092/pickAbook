@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".screens.fiction.FictionScreen">
+    tools:context=".screens.fiction_nonfiction.FictionNonFictionScreen">
 
    <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/recView"

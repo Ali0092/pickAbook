@@ -11,29 +11,8 @@
         android:label="Category"
         tools:layout="@layout/fragment_category_screen" >
         <action
-            android:id="@+id/action_categoryScreen_to_fictionScreen"
-            app:destination="@id/fictionScreen" />
-        <action
-            android:id="@+id/action_categoryScreen_to_nonFictionScreen"
-            app:destination="@id/nonFictionScreen" />
-    </fragment>
-    <fragment
-        android:id="@+id/fictionScreen"
-        android:name="com.example.pickabook.screens.fiction.FictionScreen"
-        android:label="Fiction"
-        tools:layout="@layout/fragment_fiction_screen" >
-        <action
-            android:id="@+id/action_fictionScreen_to_bookListScreen"
-            app:destination="@id/bookListScreen" />
-    </fragment>
-    <fragment
-        android:id="@+id/nonFictionScreen"
-        android:name="com.example.pickabook.screens.nonFiciton.NonFictionScreen"
-        android:label="Non Fiction"
-        tools:layout="@layout/fragment_non_fiction_screen" >
-        <action
-            android:id="@+id/action_nonFictionScreen_to_bookListScreen"
-            app:destination="@id/bookListScreen" />
+            android:id="@+id/action_categoryScreen_to_fictionNonFictionScreen"
+            app:destination="@id/fictionNonFictionScreen" />
     </fragment>
     <fragment
         android:id="@+id/bookListScreen"
@@ -96,4 +75,16 @@
         android:name="com.example.pickabook.screens.signinSignup.SignupScreen"
         android:label="fragment_signup_screen"
         tools:layout="@layout/fragment_signup_screen" />
+    <fragment
+        android:id="@+id/fictionNonFictionScreen"
+        android:name="com.example.pickabook.screens.fiction_nonfiction.FictionNonFictionScreen"
+        android:label="fragment_fiction_screen"
+        tools:layout="@layout/fragment_fiction_screen" >
+        <action
+            android:id="@+id/action_fictionNonFictionScreen_to_bookListScreen"
+            app:destination="@id/bookListScreen" />
+        <argument
+            android:name="type"
+            app:argType="string" />
+    </fragment>
 </navigation>

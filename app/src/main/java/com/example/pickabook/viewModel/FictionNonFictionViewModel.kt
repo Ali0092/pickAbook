@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
-class FictionViewModel : ViewModel() {
+class FictionNonFictionViewModel : ViewModel() {
 
     private val fireStoreRef = DataUtils.Category
 
@@ -21,17 +21,29 @@ class FictionViewModel : ViewModel() {
     val data: LiveData<List<BookCatTitle>>
         get() = _data
 
+    private var type:String=" "
+
+    fun setCategory(data:String){
+        type=data
+    }
+
     fun getAllTheCats() = CoroutineScope(Dispatchers.IO).launch {
         try {
+            var temp:Long=0
+            temp = if(type=="Fiction"){
+                DataUtils.fictionCode
+            }else{
+                DataUtils.nonFictionCode
+            }
             val snapShotDocs =
-                fireStoreRef.whereEqualTo("id", DataUtils.fictionCode).get().await()
+                fireStoreRef.whereEqualTo("id", temp).get().await()
             val list = mutableListOf<BookCatTitle>()
             for (docs in snapShotDocs.documents) {
-                val temp = docs.toObject<BookCatTitle>()
-                if (temp != null) {
-                    list.add(temp)
+                val doc = docs.toObject<BookCatTitle>()
+                if (doc != null) {
+                    list.add(doc)
                     withContext(Dispatchers.Main) {
-                        Log.d("temp", temp.toString())
+                        Log.d("temp", doc.toString())
                     }
                 } else {
                     withContext(Dispatchers.Main) {

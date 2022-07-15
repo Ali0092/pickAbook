@@ -18,10 +18,6 @@ class BookListViewModel(category: Category) : ViewModel() {
 
     private var store = DataUtils.BookStore.document(category.cat).collection(category.subCat)
 
-    private val _data = MutableLiveData<List<BookCatTitle>>()
-    val data: LiveData<List<BookCatTitle>>
-        get() = _data
-
     private val _details = MutableLiveData<List<BookDetails>>()
     val details: LiveData<List<BookDetails>>
         get() = _details
@@ -30,8 +26,7 @@ class BookListViewModel(category: Category) : ViewModel() {
     fun getAllData() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val list = mutableListOf<BookCatTitle>()
-                val listWithDetails = mutableListOf<BookDetails>()
+                val detailsList = mutableListOf<BookDetails>()
 
                 store.addSnapshotListener { snapshot, error ->
                     if (error != null) {
@@ -42,15 +37,13 @@ class BookListViewModel(category: Category) : ViewModel() {
                         val dataList = snapshot.documents
                         for (doc in dataList) {
                             val dataItem = doc.toObject<BookDetails>()
+                            Log.d("Tester",dataItem.toString())
                             if (dataItem != null) {
-                             //   val temp = BookCatTitle(dataItem.title.toString(), dataItem.link)
-                                listWithDetails.add(dataItem)
-                             //   list.add(temp)
+                                detailsList.add(dataItem)
                             }
 
                         }
-                     //   _data.postValue(list)
-                        _details.postValue(listWithDetails)
+                        _details.postValue(detailsList)
 
                     } else {
                         Log.d("Tester", "Data is null")

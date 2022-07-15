@@ -1,9 +1,9 @@
-package com.example.pickabook.screens.fiction
+package com.example.pickabook.screens.fiction_nonfiction
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.pickabook.models.BookCatTitle
 
-class FictionDiffutils(
+class FictionNonFictionDiffUtils(
     private val oldList:List<BookCatTitle>,
     private val newList:List<BookCatTitle>
 ):DiffUtil.Callback() {

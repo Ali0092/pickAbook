@@ -4,7 +4,9 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pickabook.DataUtils
 import com.example.pickabook.databinding.GridViewItemBinding
 import com.example.pickabook.models.BookDetails
 import com.example.pickabook.models.BookCatTitle
@@ -12,9 +14,8 @@ import com.squareup.picasso.Picasso
 
 class BookListAdapter : RecyclerView.Adapter<BookListAdapter.MyViewHolder>() {
 
-    private var bookList = emptyList<BookCatTitle>()
+    private var oldList = emptyList<BookCatTitle>()
     private var bookDetailsList= emptyList<BookDetails>()
-    //  var cat:String=" "
 
     class MyViewHolder(val binding: GridViewItemBinding) : RecyclerView.ViewHolder(binding.root) {
         //ViewHolder Class...
@@ -31,10 +32,9 @@ class BookListAdapter : RecyclerView.Adapter<BookListAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentItem = bookList[position]
         holder.binding.apply {
-          //  Picasso.get().load(currentItem.id).into(this.imgIv)
-            this.nameTv.text = currentItem.name.toString()
+            Picasso.get().load(oldList[position].link).into(this.imgIv)
+            this.nameTv.text = oldList[position].name.toString()
         }
         holder.binding.gridLayout.setOnClickListener {
            it.findNavController().navigate(BookListScreenDirections.actionBookListScreenToBookDetails(bookDetailsList[position]))
@@ -44,15 +44,17 @@ class BookListAdapter : RecyclerView.Adapter<BookListAdapter.MyViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return bookList.size
+        return oldList.size
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun getBookListItems(list: List<BookCatTitle>) {
-        this.bookList = list
-        this.notifyDataSetChanged()
+    fun setBookData(newList: List<BookCatTitle>) {
+        val diffUtils=BookListDiffUtils(oldList,newList)
+        val diffResult=DiffUtil.calculateDiff(diffUtils)
+        oldList = newList
+        diffResult.dispatchUpdatesTo(this)
     }
-    fun getBookDetailsList(list:List<BookDetails>){
+    fun setBookDetailsList(list:List<BookDetails>){
         this.bookDetailsList=list
     }
 }
