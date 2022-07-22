@@ -6,9 +6,24 @@
     android:padding="16dp"
     tools:context=".screens.fiction_nonfiction.FictionNonFictionScreen">
 
-   <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/recView"
+   <LinearLayout
        android:layout_width="match_parent"
-       android:layout_height="match_parent"/>
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+      <TextView
+          android:id="@+id/bookType"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="TYPE"
+          android:textSize="25sp"
+          android:textAllCaps="true"/>
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/recView"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_marginTop="10dp"/>
+
+   </LinearLayout>
 
 </FrameLayout>

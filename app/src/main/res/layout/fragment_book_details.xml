@@ -14,84 +14,128 @@
             android:id="@+id/Image"
             android:layout_width="250dp"
             android:layout_height="300dp"
-            android:layout_gravity="center"
             android:layout_marginTop="100dp"
+            android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/bookTitle"
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Title"
-            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/Image"
             app:layout_constraintStart_toStartOf="@+id/Image"
-            app:layout_constraintTop_toBottomOf="@+id/Image" />
+            app:layout_constraintTop_toBottomOf="@+id/Image">
 
-        <TextView
-            android:id="@+id/authorName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Author Name"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/bookTitle"
-            app:layout_constraintTop_toBottomOf="@+id/bookTitle" />
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Title :      "
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Availability"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/authorName"
-            app:layout_constraintTop_toBottomOf="@+id/authorName" />
+            <TextView
+                android:id="@+id/bookTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv1"
+                android:text="Some Book"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Price"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/status"
-            app:layout_constraintTop_toBottomOf="@+id/status" />
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv1"
+                android:layout_alignParentLeft="true"
+                android:text="Author :  "
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/authorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bookTitle"
+                android:layout_toRightOf="@id/tv2"
+                android:text="Some Author"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv2"
+                android:layout_alignParentLeft="true"
+                android:text="Status :   "
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/authorName"
+                android:layout_toRightOf="@id/tv3"
+                android:text="Availability"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv3"
+                android:layout_alignParentLeft="true"
+                android:text="Price :     "
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/status"
+                android:layout_toRightOf="@id/tv4"
+                android:text="0000"
+                android:textSize="20sp" />
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="------------------------- Add to -------------------------"
-            android:textSize="15sp"
+            android:text="------------------------------ADD TO-----------------------------"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/price" />
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
         <Button
             android:id="@+id/addToCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cart"
-            android:layout_marginTop="25dp"
-            app:layout_constraintEnd_toStartOf="@+id/addTofav"
+            android:text="CART"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/addToFav"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <Button
-            android:id="@+id/addTofav"
+            android:id="@+id/addToFav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Favourite"
-            android:layout_marginTop="25dp"
+            android:text="FAV"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/addToCart"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 </FrameLayout>

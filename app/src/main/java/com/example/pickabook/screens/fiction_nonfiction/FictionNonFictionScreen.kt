@@ -28,6 +28,8 @@ class FictionNonFictionScreen : Fragment() {
         viewModel.setCategory(args.type)
         myAdapter.setCategory(args.type)
         viewModel.getAllTheCats()
+
+        binding.bookType.text=args.type.toString()
         viewModel.data.observe(viewLifecycleOwner, Observer {
            myAdapter.setData(it)
         })

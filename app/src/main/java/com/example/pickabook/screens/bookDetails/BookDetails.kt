@@ -32,6 +32,13 @@ class BookDetails : Fragment() {
             binding.price.text=it.price.toString()
             binding.status.text=it.status.toString()
         })
+
+        binding.addToCart.setOnClickListener {
+
+        }
+        binding.addToFav.setOnClickListener {
+
+        }
         return binding.root
     }
 
