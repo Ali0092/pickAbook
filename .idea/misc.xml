@@ -3,7 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ANDROID/pickAbook/app/src/main/res/drawable/add_item.xml" value="0.2025" />
+        <entry key="..\:/ANDROID/pickAbook/app/src/main/res/drawable/card_desing.xml" value="0.2155" />
+        <entry key="..\:/ANDROID/pickAbook/app/src/main/res/layout/cart_item_view.xml" value="0.5" />
+        <entry key="..\:/ANDROID/pickAbook/app/src/main/res/layout/fav_item_view.xml" value="0.20833333333333334" />
         <entry key="..\:/ANDROID/pickAbook/app/src/main/res/layout/fragment_book_details.xml" value="0.25" />
+        <entry key="..\:/ANDROID/pickAbook/app/src/main/res/layout/fragment_book_list_screen.xml" value="0.209375" />
+        <entry key="..\:/ANDROID/pickAbook/app/src/main/res/layout/fragment_cart_screen.xml" value="0.25" />
+        <entry key="..\:/ANDROID/pickAbook/app/src/main/res/layout/fragment_category_screen.xml" value="0.209375" />
         <entry key="..\:/ANDROID/pickAbook/app/src/main/res/layout/fragment_favourite_screen.xml" value="0.17798913043478262" />
         <entry key="..\:/ANDROID/pickAbook/app/src/main/res/layout/fragment_fiction_screen.xml" value="0.18840579710144928" />
         <entry key="..\:/ANDROID/pickAbook2/app/src/main/res/drawable/about_ic.xml" value="0.1315" />

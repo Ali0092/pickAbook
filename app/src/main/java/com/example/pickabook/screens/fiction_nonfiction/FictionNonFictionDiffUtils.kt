@@ -22,12 +22,8 @@ class FictionNonFictionDiffUtils(
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
        return when{
-           oldList[oldItemPosition].name!=newList[newItemPosition].name ->{
-               false
-           }
-           oldList[oldItemPosition].link!=newList[newItemPosition].link ->{
-               false
-           }
+           oldList[oldItemPosition].name!=newList[newItemPosition].name -> false
+           oldList[oldItemPosition].link!=newList[newItemPosition].link -> false
            else -> true
        }
     }

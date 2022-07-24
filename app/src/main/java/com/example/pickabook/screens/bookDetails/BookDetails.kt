@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.pickabook.R
 import com.example.pickabook.databinding.FragmentBookDetailsBinding
 import com.example.pickabook.viewModel.BookDetailsViewModel
 import com.squareup.picasso.Picasso
@@ -28,16 +30,17 @@ class BookDetails : Fragment() {
         viewModel.data.observe(viewLifecycleOwner, Observer {
             Picasso.get().load(it.link).into(binding.Image)
             binding.bookTitle.text=it.title.toString()
+            binding.title2.text=it.title.toString()
             binding.authorName.text=it.author.toString()
             binding.price.text=it.price.toString()
             binding.status.text=it.status.toString()
         })
 
         binding.addToCart.setOnClickListener {
-
+            this.findNavController().navigate(R.id.action_bookDetails_to_cartScreen)
         }
         binding.addToFav.setOnClickListener {
-
+           this.findNavController().navigate(R.id.action_bookDetails_to_favouriteScreen)
         }
         return binding.root
     }
