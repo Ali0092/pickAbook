@@ -1,11 +1,11 @@
 package com.example.pickabook.screens.cart
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.pickabook.models.CartItems
+import com.example.pickabook.models.CartItem
 
 class CartScreenDiffutils(
-    private val oldList:List<CartItems>,
-    private val newList:List<CartItems>
+    private val oldList:List<CartItem>,
+    private val newList:List<CartItem>
 ):DiffUtil.Callback() {
     override fun getOldListSize(): Int = oldList.size
 

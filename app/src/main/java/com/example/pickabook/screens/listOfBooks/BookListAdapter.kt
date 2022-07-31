@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso
 
 class BookListAdapter : RecyclerView.Adapter<BookListAdapter.MyViewHolder>() {
 
+    private var subCat=""
     private var oldList = emptyList<BookCatTitle>()
     private var bookDetailsList= emptyList<BookDetails>()
 
@@ -37,7 +38,7 @@ class BookListAdapter : RecyclerView.Adapter<BookListAdapter.MyViewHolder>() {
             this.nameTv.text = oldList[position].name.toString()
         }
         holder.binding.gridLayout.setOnClickListener {
-           it.findNavController().navigate(BookListScreenDirections.actionBookListScreenToBookDetails(bookDetailsList[position]))
+           it.findNavController().navigate(BookListScreenDirections.actionBookListScreenToBookDetails(bookDetailsList[position],subCat))
         }
 
 
@@ -54,7 +55,8 @@ class BookListAdapter : RecyclerView.Adapter<BookListAdapter.MyViewHolder>() {
         oldList = newList
         diffResult.dispatchUpdatesTo(this)
     }
-    fun setBookDetailsList(list:List<BookDetails>){
+    fun setBookDetailsList(list:List<BookDetails>,sCat:String){
+        this.subCat=sCat
         this.bookDetailsList=list
     }
 }

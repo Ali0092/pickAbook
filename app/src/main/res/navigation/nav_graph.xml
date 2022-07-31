@@ -54,12 +54,10 @@
         <argument
             android:name="singleBook"
             app:argType="com.example.pickabook.models.BookDetails" />
-        <action
-            android:id="@+id/action_bookDetails_to_cartScreen"
-            app:destination="@id/cartScreen" />
-        <action
-            android:id="@+id/action_bookDetails_to_favouriteScreen"
-            app:destination="@id/favouriteScreen" />
+        <argument
+            android:name="subCat"
+            app:argType="string"
+            android:defaultValue="Action" />
     </fragment>
     <fragment
         android:id="@+id/loginScreen"

@@ -37,7 +37,8 @@ class BookListViewModel(category: Category) : ViewModel() {
                         val dataList = snapshot.documents
                         for (doc in dataList) {
                             val dataItem = doc.toObject<BookDetails>()
-                         //   Log.d("Tester",dataItem.toString())
+                            Log.d("Flag",dataItem.toString())
+
                             if (dataItem != null) {
                                 detailsList.add(dataItem)
                             }

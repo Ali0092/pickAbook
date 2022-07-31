@@ -44,16 +44,15 @@ class BookListScreen : Fragment() {
                 listOfBookTitles.add(temp)
             }
             bookListAdapter.setBookData(listOfBookTitles)
-            bookListAdapter.setBookDetailsList(it)
+            bookListAdapter.setBookDetailsList(it,args.subCat)
         })
 
         return binding.root
     }
 
     private fun settingUpRecyclerView() {
-        binding.revView.adapter = bookListAdapter
-        binding.revView.layoutManager = GridLayoutManager(context, 2)
+        binding.recView.adapter = bookListAdapter
+        binding.recView.layoutManager = GridLayoutManager(context, 2)
     }
-
 
 }
