@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/ANDROID/pickAbook/app/src/main/res/drawable/add_item.xml" value="0.2025" />
+        <entry key="..\:/ANDROID/pickAbook/app/src/main/res/drawable/book_header_ic.xml" value="0.2165" />
+        <entry key="..\:/ANDROID/pickAbook/app/src/main/res/drawable/book_ic.xml" value="0.2165" />
         <entry key="..\:/ANDROID/pickAbook/app/src/main/res/drawable/card_desing.xml" value="0.2155" />
         <entry key="..\:/ANDROID/pickAbook/app/src/main/res/layout/cart_item_view.xml" value="0.5" />
         <entry key="..\:/ANDROID/pickAbook/app/src/main/res/layout/fav_cart_item_layout.xml" value="0.209375" />
@@ -14,6 +16,7 @@
         <entry key="..\:/ANDROID/pickAbook/app/src/main/res/layout/fragment_category_screen.xml" value="0.209375" />
         <entry key="..\:/ANDROID/pickAbook/app/src/main/res/layout/fragment_favourite_screen.xml" value="0.17798913043478262" />
         <entry key="..\:/ANDROID/pickAbook/app/src/main/res/layout/fragment_fiction_screen.xml" value="0.18840579710144928" />
+        <entry key="..\:/ANDROID/pickAbook/app/src/main/res/layout/nav_header.xml" value="0.209375" />
         <entry key="..\:/ANDROID/pickAbook2/app/src/main/res/drawable/about_ic.xml" value="0.1315" />
         <entry key="..\:/ANDROID/pickAbook2/app/src/main/res/drawable/book_ic.xml" value="0.1315" />
         <entry key="..\:/ANDROID/pickAbook2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />

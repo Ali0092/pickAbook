@@ -33,11 +33,8 @@ class CartScreenAdapter : RecyclerView.Adapter<CartScreenAdapter.MyViewHolder>()
         holder.binding.apply {
             Picasso.get().load(oldList[position].imageLink).into(Image)
             bookTitle.text = oldList[position].title
-            cost.text = (oldList[position].cost).toString()
-            // quantity.text = oldList[position].cost.toString()
-        }
-        holder.binding.quantity.setOnClickListener {
-            oldList[position].quantity = oldList[position].quantity + 1
+            cost.text = "RS."+(oldList[position].cost).toString()
+            quantity.text = oldList[position].quantity.toString()+"x"
         }
         //Code to Delete the Item By Swiping...
     }

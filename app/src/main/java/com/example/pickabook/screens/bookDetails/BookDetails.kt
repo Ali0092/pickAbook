@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.pickabook.R
 import com.example.pickabook.databinding.FragmentBookDetailsBinding
+import com.example.pickabook.models.BookCatTitle
 import com.example.pickabook.models.CartItem
 import com.example.pickabook.viewModel.BookDetailsViewModel
 import com.squareup.picasso.Picasso
@@ -21,6 +22,7 @@ class BookDetails : Fragment() {
     private lateinit var binding: FragmentBookDetailsBinding
     private val viewModel: BookDetailsViewModel by viewModels()
     private val args: BookDetailsArgs by navArgs()
+    private val tempId=0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,8 +52,15 @@ class BookDetails : Fragment() {
         }
 
         binding.addToFav.setOnClickListener {
-            Toast.makeText(context,"Added into FAV List..:)",Toast.LENGTH_LONG).show()
+            val id=tempId+1
+            val imageLink=args.singleBook.link
+            val bookName=args.singleBook.title
+
+            val favItem=BookCatTitle(id.toLong(),imageLink,bookName)
+
+            viewModel.setTheFavItem(favItem)
         }
+
         return binding.root
     }
 
