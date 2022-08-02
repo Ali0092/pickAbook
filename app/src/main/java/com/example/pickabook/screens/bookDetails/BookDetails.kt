@@ -4,13 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.pickabook.R
 import com.example.pickabook.databinding.FragmentBookDetailsBinding
 import com.example.pickabook.models.BookCatTitle
 import com.example.pickabook.models.CartItem
@@ -22,13 +19,13 @@ class BookDetails : Fragment() {
     private lateinit var binding: FragmentBookDetailsBinding
     private val viewModel: BookDetailsViewModel by viewModels()
     private val args: BookDetailsArgs by navArgs()
-    private val tempId=0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentBookDetailsBinding.inflate(layoutInflater)
+
         viewModel.getTheArgs(args.singleBook)
 
         viewModel.data.observe(viewLifecycleOwner, Observer {
@@ -41,24 +38,24 @@ class BookDetails : Fragment() {
         })
 
         binding.addToCart.setOnClickListener {
-            val imageLink=args.singleBook.link.toString()
-            val title=args.singleBook.title.toString()
-            val cost=args.singleBook.price
-            val quantity=1
+            val id = args.singleBook.id.toLong()
+            val imageLink = args.singleBook.link.toString()
+            val title = args.singleBook.title.toString()
+            val cost = args.singleBook.price
+            val quantity = 1
 
-            val cartItem=CartItem(imageLink,title,cost,quantity)
-
-            viewModel.setTheCartItem(cartItem)
+            val cartItem = CartItem(imageLink, id, title, cost, quantity)
+            viewModel.checkingCartData(cartItem)
         }
 
         binding.addToFav.setOnClickListener {
-            val id=tempId+1
-            val imageLink=args.singleBook.link
-            val bookName=args.singleBook.title
+            val id = args.singleBook.id
+            val imageLink = args.singleBook.link
+            val bookName = args.singleBook.title
 
-            val favItem=BookCatTitle(id.toLong(),imageLink,bookName)
+            val favItem = BookCatTitle(id, imageLink, bookName)
 
-            viewModel.setTheFavItem(favItem)
+            viewModel.checkingFavData(favItem)
         }
 
         return binding.root

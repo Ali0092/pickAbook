@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:text="some title"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/Image"
             app:layout_constraintTop_toTopOf="@+id/Image" />
 
